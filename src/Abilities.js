@@ -16,8 +16,8 @@ export const Abilities = {
         effects:{
             "onTurnStart":[
                 async(player, enemy, game, arg) => {
-                    if(!enemy) return;
-                    await addLog(`${player.name} dealing one extra physical attack!`)
+                    if(!enemy || !game) return;
+                    await game.addLog(`${player.name} dealing one extra physical attack!`)
                     await player.physicalAttack(enemy);
                 }
             ]
